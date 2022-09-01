@@ -12,7 +12,7 @@ public class Pascal_Triangle {
 			int val = 1;
 			while (i < star) {
 				System.out.print(val + " ");
-				val = ((row - i) * val) / (i + 1);
+				val = ((row - i) * val) / (i + 1);	// for next nCr.
 				i++;
 			}
 			star++;
