@@ -1,39 +1,33 @@
 import java.util.Scanner;
 
 public class Pattern_15 {
-
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int row = 1;
-        int space = 0;
-        int star = n;
-        while (row <= n) {
-            int i = 1;
-            while (i <= space) {
-                System.out.print("  ");
-                i++;
-            }
-
+        int i = 1;
+        int sp = 0;
+        int x = n;
+        while (i < n * 2) {
             int j = 1;
-            while (j <= star) {
-                System.out.print("* ");
+            while (j <= sp) {
+                System.out.print("  ");
                 j++;
             }
-            if (row < n) {
-
-                space += 2;
-                star--;
-            } else {
-                space -= 2;
-                star++;
+            int k = 1;
+            while (k <= x) {
+                System.out.print("* ");
+                k++;
             }
-            row++;
             System.out.println();
-
+            if (i < n) {
+                x--;
+                sp += 2;
+            } else {
+                x++;
+                sp -= 2;
+            }
+            i++;
         }
-
+        sc.close();
     }
-
 }
