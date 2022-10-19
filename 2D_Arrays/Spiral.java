@@ -28,17 +28,17 @@ public class Spiral {
                 x++;
             }
             minr++;
-            for (int i = minr; i <= maxr; i++) {
+            for (int i = minr; i <= maxr && x < t; i++) {
                 System.out.print(arr[i][maxc] + " ");
                 x++;
             }
             maxc--;
-            for (int i = maxc; i >= minc; i--) {
+            for (int i = maxc; i >= minc && x < t; i--) {
                 System.out.print(arr[maxr][i] + " ");
                 x++;
             }
             maxr--;
-            for (int i = maxr; i >= minr; i--) {
+            for (int i = maxr; i >= minr && x < t; i--) {
                 System.out.print(arr[i][minc] + " ");
                 x++;
             }
