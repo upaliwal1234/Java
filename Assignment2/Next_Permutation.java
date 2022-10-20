@@ -18,43 +18,44 @@ public class Main {
         }
     }
 
-    public static void nextPermutation(int[] arr)
-    {
-        int n = arr.length, i, j;
-        for (i = n - 2; i >= 0; i--) {
-        if (arr[i] < arr[i + 1]) {
-            break;
-        }
-        }
-    
-        if (i < 0) {
-        reverse(arr, 0, arr.length - 1);
-        }
-        else {
-            for (j = n - 1; j > i; j--) {
-                if (arr[j] > arr[i]) {
+   public static void nextPermutation(int[] arr) {
+
+        int p = -1;
+        int q = -1;
+        for (int i = arr.length - 2; i >= 0; i--) {
+            if (arr[i] < arr[i + 1]) {
+                p = i;
                 break;
-                }
             }
-            swap(arr, i, j);
-            reverse(arr, i + 1, arr.length - 1);
         }
+        if (p == -1) {
+            Reverse(arr, 0, arr.length - 1);
+            return;
+        }
+        for (int i = arr.length - 1; i > p; i--) {
+            if (arr[i] > arr[p]) {
+                q = i;
+                break;
+            }
+        }
+        int temp = arr[p];
+        arr[p] = arr[q];
+        arr[q] = temp;
+        Reverse(arr, p + 1, arr.length - 1);
+
     }
 
-    public static void reverse(int[] arr, int start, int end)
-    {
-        while (start < end) {
-        swap(arr, start, end);
-        start++;
-        end--;
-        }
-    }
+    public static void Reverse(int[] arr, int i, int j) {
+        // TODO Auto-generated method stub
 
-    public static void swap(int[] arr, int i, int j)
-    {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        while (i < j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+
     }
 
 }
