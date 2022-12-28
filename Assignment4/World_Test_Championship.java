@@ -3,6 +3,11 @@
 // match and the winning team will lift the inaugural World Test Championship (WTC) trophy.
 // Rohit Sharma also known as Hitman Sharma and vice captain of Indian Cricket Team decided that he will play very aggressively and will hit maximum time 
 // sixes or fours. Also taking singles and doubles India won the match with ease because of Hitman Sharma's efforts.
+// But due to some technical issues, the records of his boundaries and singles and doubles got lost . Now Cricinfo, which maintains the records for each 
+// player, wants to hire you as a developer if you are able to resolve this problem and give them the exact count of runs in every over.
+// Cricinfo will give you an array of N overs, containing runs made in each over.
+// For making your task easy, maximize the contiguous number of overs such that in every over different runs were made.
+// If you are able to complete this task successfully, then congratulations you are hired.
 import java.util.*;
 public class Main {
     public static void main (String args[]) {
