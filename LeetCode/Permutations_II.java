@@ -12,6 +12,7 @@ class Solution {
             if(list.contains(l) == false){
                 list.add(new ArrayList<>(l));
             }
+            return;
         }
         for(int i = 0; i < nums.length; i++){
             if(arr[i] == false){
