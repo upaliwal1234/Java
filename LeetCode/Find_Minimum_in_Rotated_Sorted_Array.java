@@ -10,10 +10,17 @@ class Solution {
         return min(nums);
     }
     public static int min(int[] arr){
-        int ans = Integer.MAX_VALUE;
-        for(int i = 0; i<arr.length; i++){
-            ans = Math.min(ans,arr[i]);
+        int l = 0;
+        int h = arr.length - 1;
+        while(l<h){
+            int mid = l + (h - l)/2;
+            if(arr[mid] < arr[h]){
+                h = mid;
+            }
+            else{
+                l = l + 1;
+            }
         }
-        return ans;
+        return arr[l];
     }
-}
+}   
