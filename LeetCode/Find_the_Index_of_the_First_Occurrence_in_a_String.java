@@ -18,3 +18,35 @@ class Solution {
         return -1;
     }
 }
+
+
+// Solution 2
+// Approach: Sliding Window
+// Runtime Beats 100%
+class Solution {
+    public int strStr(String haystack, String needle) {
+        return str(haystack,needle);
+    }
+    public static int str(String s, String t){
+        if(s.length() < t.length()){
+            return -1;
+        }
+        int si = 0;
+        int ei = t.length();
+        if(s.substring(si, ei).equals(t)){
+            return si;
+        }
+        si++;
+        ei++;
+        while(ei <= s.length()){
+            if(s.substring(si, ei).equals(t)){
+                return si;
+            }
+            else{
+                si++;
+                ei++;
+            }
+        }
+        return -1;
+    }
+}
