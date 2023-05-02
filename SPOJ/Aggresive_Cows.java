@@ -1,50 +1,56 @@
 import java.util.*;
 
-public class Agressive_Cows {
-    public static void main(String[] args) throws java.lang.Exception {
-        Scanner sc = new Scanner(System.in);
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        while (t-- > 0) {
-            int N = sc.nextInt();
+        while(t-- > 0){    
+            int nos = sc.nextInt();
             int C = sc.nextInt();
-            int[] arr = new int[N];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = sc.nextInt();
+            int[] rra = new int[nos];
+            for (int i = 0; i < rra.length; i++) {
+                rra[i] = sc.nextInt();
             }
-            int ans = LargestMinimum(C, arr);
-            System.out.println(ans);
+            Arrays.sort(rra);
+            System.out.println(minimum(rra, C));
         }
-    }
+	}
+	public static boolean possible(int[] rra, int C, int mid) {
+		int pos = rra[0];
+		int i = 1;
+		int cow = 1;
+		while (i < rra.length) {
+			if (rra[i] - pos >= mid) {
+				cow++;
+				pos = rra[i];
+			}
+			if (cow == C) {
+				return true;
+			}
 
-    public static int LargestMinimum(int C, int[] arr) {
-        int ans = 0;
-        int l = arr[0];
-        int h = arr[arr.length - 1];
-        Arrays.sort(arr);
-        while (l <= h) {
-            int mid = l + (h - l) / 2;
-            if (isPosibble(arr, mid, C)) {
-                ans = mid;
-                l = mid + 1;
-            } else {
-                h = mid - 1;
-            }
-        }
-        return ans;
-    }
+			i++;
+		}
+		return false;
+	}
 
-    public static boolean isPosibble(int[] arr, int min, int C) {
-        int last = arr[0];
-        C--;
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] - last >= min) {
-                C--;
-                last = arr[i];
-            }
-            if (C == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
+	public static int minimum(int[] rra, int C) {
+		int lo = 0;
+		int n = rra.length;
+		int hi = rra[n - 1] - rra[0];
+		int ans = 0;
+		while (lo <= hi) {
+			int mid = (lo + hi) / 2;
+			if (possible(rra, C, mid) == true) {
+				ans = mid;
+				lo = mid + 1;
+			} else {
+				hi = mid - 1;
+			}
+
+		}
+		return ans;
+	}
+
+
 }
